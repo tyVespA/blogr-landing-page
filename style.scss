@@ -1,0 +1,186 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+   box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+/* 
+html, body {
+  height: 100%;
+}
+*/
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+   line-height: 1.5;
+   -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/* ==== END OF CSS RESET === */
+
+:root {
+   /* Semantic naming */
+   --light-red: hsl(356, 100%, 66%);
+   --very-light-red: hsl(355, 100%, 74%);
+   --very-dark-blue: hsl(208, 49%, 24%);
+   --grayish-blue: hsl(240, 2%, 79%);
+   --very-dark-greyish-blue: hsl(207, 13%, 34%);
+   --very-dark-black-blue: hsl(240, 10%, 16%);
+   --red-gradient: linear-gradient(to right, hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+   --blue-gradient: linear-gradient(hsl(237, 17%, 21%), hsl(237, 23%, 32%));
+
+   /* Contextual naming */
+   --CTA-text: var(--light-red);
+   --CTA-hover-background: var(--very-light-red);
+   --headings: var(--very-dark-blue);
+   --text: white;
+   --footer-text: var(--grayish-blue);
+   --body-copy: var(--very-dark-greyish-blue);
+   --footer-background: var(--very-dark-black-blue);
+   --introCTA-mobile-nav: var(--red-gradient);
+   --background-gradient-body: var(--blue-gradient);
+}
+
+body {
+   font-family: 'Overpass', sans-serif;
+}
+
+h1, h2, h3 {
+   font-family: 'Ubuntu', sans-serif;
+}
+
+button {
+   cursor: pointer;
+}
+
+/* HEADER */
+
+header {
+   background: var(--introCTA-mobile-nav);
+   color: var(--text);
+}
+
+nav {
+   padding: 60px 20px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   font-weight: 600;
+
+   position: relative;
+}
+
+/* NAV COMMON STYLES */
+
+.hamburger, .login {
+   color: white;
+   background-color: transparent;
+   border: none;
+}
+
+.nav-right {
+   align-items: flex-end;
+}
+
+.nav-items div {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 7px;
+}
+
+/* NAV MOBILE */
+
+.nav-items-desktop, .login, .sign-up {
+   display: none;
+}
+
+.mobile-menu {
+   position: absolute;
+   min-width: 100%;
+   text-align: center;
+   padding: 30px 20px;
+   top: 125px;
+   right: 200px;
+   left: 20px;
+   background-color: white;
+   color: var(--body-copy);
+}
+
+.nav-items-mobile {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+hr {
+   margin-block: 20px;
+   opacity: 0.1;
+}
+
+.mobile-menu button:first-child {
+   margin-bottom: 20px;
+}
+
+/* NAV DESKTOP */
+
+@media screen and (min-width: 800px) {
+   .nav-left {
+   display: flex;
+   align-items: flex-end;
+   gap: 60px;
+   }
+
+   .nav-items-desktop {
+      display: flex;
+      gap: 30px;
+   }
+
+   .nav-right {
+      display: flex;
+      gap: 30px;
+   }
+
+   .login, .sign-up {
+      display: block;
+   }
+}
